@@ -3,7 +3,7 @@ name: Logger4k CI
 on:
   push:
     branches:
-      - master
+      - main
   release:
     types: [ published, created, edited ]
 permissions:
@@ -26,4 +26,3 @@ jobs:
         run: ./gradlew --version
       - name: Test with Gradle
         run: ./gradlew test
-
