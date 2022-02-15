@@ -1,7 +1,7 @@
 package org.d7z.logger4k.forward
 
-import org.d7z.logger4k.core.api.ILogApi
-import org.d7z.logger4k.core.api.ILoggerSearch
+import org.d7z.logger4k.core.pub.ILogApi
+import org.d7z.logger4k.core.pub.ILoggerSearch
 import org.d7z.logger4k.forward.jul.JULLogApi
 import org.d7z.logger4k.forward.log4j.Log4jLogApi
 import org.d7z.logger4k.forward.slf4j.SLF4JLogApi

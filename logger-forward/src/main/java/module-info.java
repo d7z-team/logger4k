@@ -9,7 +9,7 @@ module logger4k.forward {
     requires org.slf4j;
     exports org.d7z.logger4k.forward;
     opens org.d7z.logger4k.forward;
-    uses org.d7z.logger4k.core.api.ILogApi;
-    uses org.d7z.logger4k.core.api.ILoggerSearch;
-    provides org.d7z.logger4k.core.api.ILoggerSearch with ForwardSearch;
+    uses ILogApi;
+    uses ILoggerSearch;
+    provides ILoggerSearch with ForwardSearch;
 }

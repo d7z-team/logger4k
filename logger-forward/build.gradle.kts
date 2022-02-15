@@ -27,14 +27,14 @@ compileJava.destinationDirectory.set(compileKotlin.destinationDirectory.get())
 dependencies {
     compileOnly(project(":logger-console"))
     compileOnly("org.slf4j:slf4j-api:2.0.0-alpha5")
-    compileOnly("org.apache.logging.log4j:log4j-core:2.14.1")
+    compileOnly("org.apache.logging.log4j:log4j-core:2.17.0")
     implementation(project(":logger-core"))
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
     testImplementation("org.slf4j:slf4j-api:2.0.0-alpha5")
     testImplementation("org.slf4j:slf4j-simple:2.0.0-alpha5")
-    testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
-    testImplementation("org.junit.platform:junit-platform-launcher:1.7.2")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
+    testImplementation("org.junit.platform:junit-platform-launcher:1.8.2")
 }
 
 tasks.test {

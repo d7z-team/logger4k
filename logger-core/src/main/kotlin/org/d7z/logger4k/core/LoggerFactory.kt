@@ -20,30 +20,27 @@
 
 package org.d7z.logger4k.core
 
-import org.d7z.logger4k.core.internal.Logger4KConfig
+import org.d7z.logger4k.core.api.ILogger
+import org.d7z.logger4k.core.api.ILoggerFactory
+import org.d7z.logger4k.core.internal.Logger4kConfig
 import kotlin.reflect.KClass
 
 /**
- * 默认的日志工厂，保证向后兼容
+ * 默认的日志工厂
  *
- * @since 1.0
+ * @since 0.1.0
  */
 object LoggerFactory : ILoggerFactory {
 
-    /**
-     * 此实例用于内部调试
-     */
-    val internal: ILoggerFactory = Logger4KConfig.debugLoggerFactory
-
     override fun getLogger(clazz: Class<*>): ILogger {
-        return Logger4KConfig.produceLoggerFactory.getLogger(clazz)
+        return Logger4kConfig.loggerFactory.getLogger(clazz)
     }
 
     override fun getLogger(clazz: KClass<*>): ILogger {
-        return Logger4KConfig.produceLoggerFactory.getLogger(clazz)
+        return Logger4kConfig.loggerFactory.getLogger(clazz)
     }
 
     override fun getLogger(name: String): ILogger {
-        return Logger4KConfig.produceLoggerFactory.getLogger(name)
+        return Logger4kConfig.loggerFactory.getLogger(name)
     }
 }

@@ -1,7 +1,7 @@
 package org.d7z.logger4k.console.output
 
 import org.d7z.logger4k.core.LoggerLevel
-import org.d7z.logger4k.core.api.ILogOutputApi
+import org.d7z.logger4k.core.pub.ILogOutputApi
 import java.time.LocalDateTime
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors

@@ -1,7 +1,7 @@
 package org.d7z.logger4k.forward.slf4j
 
 import org.d7z.logger4k.core.LoggerLevel
-import org.d7z.logger4k.core.api.ILogOutputApi
+import org.d7z.logger4k.core.pub.ILogOutputApi
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.time.LocalDateTime

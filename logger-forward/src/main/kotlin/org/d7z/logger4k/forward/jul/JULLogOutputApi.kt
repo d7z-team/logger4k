@@ -1,7 +1,7 @@
 package org.d7z.logger4k.forward.jul
 
 import org.d7z.logger4k.core.LoggerLevel
-import org.d7z.logger4k.core.api.ILogOutputApi
+import org.d7z.logger4k.core.pub.ILogOutputApi
 import org.d7z.logger4k.core.utils.ThrowableUtils
 import java.time.LocalDateTime
 import java.util.logging.Level as JULLevel

@@ -1,6 +1,6 @@
 package org.d7z.logger4k.forward.log4j
 
-import org.d7z.logger4k.core.api.ILogOutputApi
+import org.d7z.logger4k.core.pub.ILogOutputApi
 import org.d7z.logger4k.forward.IForwardApi
 
 class Log4jLogApi : IForwardApi {

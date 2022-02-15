@@ -18,11 +18,17 @@
  * SOFTWARE.
  */
 
-package org.d7z.logger4k.core.utils
+package org.d7z.logger4k.core.pub
 
 /**
  *  Class 类名格式化优化
  */
-interface IClassNameFormat {
+interface INameFormat {
+    /**
+     * 格式化 Logger 名称
+     *
+     * @param name String Logger 名称
+     * @return String 格式化后的样式
+     */
     fun format(name: String): String
 }

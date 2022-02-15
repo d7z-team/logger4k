@@ -18,16 +18,20 @@
  * SOFTWARE.
  */
 
-package org.d7z.logger4k.core
+package org.d7z.logger4k.core.api
+
+import org.d7z.logger4k.core.LoggerLevel
 
 /**
  *  # Logger 日志框架核心
+ *
+ *  @since 0.1.0
  *
  */
 interface ILogger {
 
     /**
-     *  # 仅在跟踪模式下执行代码块
+     *  ## 仅在跟踪模式下执行代码块
      *
      * @return Log logger 实例
      */
@@ -35,7 +39,7 @@ interface ILogger {
 
     /**
      *
-     * # 输出跟踪日志
+     * ## 输出跟踪日志
      *
      * @param message Any 消息
      * @param param Array<out Any?> 填充信息
@@ -44,7 +48,7 @@ interface ILogger {
     fun trace(message: String, vararg param: Any? = arrayOf()): ILogger
 
     /**
-     * # 输出跟踪日志
+     * ## 输出跟踪日志
      *
      * @param message String 日志信息
      * @param exception Throwable 抛出异常
@@ -53,7 +57,7 @@ interface ILogger {
     fun traceThrowable(message: Any, exception: Throwable): ILogger
 
     /**
-     *  # 仅在调试模式下执行代码块
+     *  ## 仅在调试模式下执行代码块
      *
      * @return Log logger 实例
      */
@@ -61,7 +65,7 @@ interface ILogger {
 
     /**
      *
-     * # 输出调试日志
+     * ## 输出调试日志
      *
      * @param message Any 消息
      * @param param Array<out Any?> 填充信息
@@ -70,7 +74,7 @@ interface ILogger {
     fun debug(message: String, vararg param: Any? = arrayOf()): ILogger
 
     /**
-     * # 输出调试日志
+     * ## 输出调试日志
      *
      * @param message String 日志信息
      * @param exception Throwable 抛出异常
@@ -80,7 +84,7 @@ interface ILogger {
 
     /**
      *
-     * # 输出标准日志
+     * ## 输出标准日志
      *
      * @param message Any 消息
      * @param param Array<out Any?> 填充信息
@@ -89,7 +93,7 @@ interface ILogger {
     fun info(message: String, vararg param: Any? = arrayOf()): ILogger
 
     /**
-     * # 输出标准日志
+     * ## 输出标准日志
      *
      * @param message String 日志信息
      * @param exception Throwable 抛出异常
@@ -99,7 +103,7 @@ interface ILogger {
 
     /**
      *
-     * # 输出警告日志
+     * ## 输出警告日志
      *
      * @param message Any 消息
      * @param param Array<out Any?> 填充信息
@@ -108,7 +112,7 @@ interface ILogger {
     fun warn(message: String, vararg param: Any? = arrayOf()): ILogger
 
     /**
-     * # 输出警告日志
+     * ## 输出警告日志
      *
      * @param message String 日志信息
      * @param exception Throwable 抛出异常
@@ -118,7 +122,7 @@ interface ILogger {
 
     /**
      *
-     * # 输出错误日志
+     * ## 输出错误日志
      *
      * @param message Any 消息
      * @param param Array<out Any?> 填充信息
@@ -127,7 +131,7 @@ interface ILogger {
     fun error(message: String, vararg param: Any? = arrayOf()): ILogger
 
     /**
-     * # 输出错误日志
+     * ## 输出错误日志
      *
      * @param message String 日志信息
      * @param exception Throwable 抛出异常
@@ -136,12 +140,12 @@ interface ILogger {
     fun errorThrowable(message: Any, exception: Throwable): ILogger
 
     /**
-     * # 是否处于调试模式
+     * ## 是否处于调试模式
      */
     val isDebug: Boolean
 
     /**
-     * # 日志输出等级
+     * ## 日志输出等级
      */
     val level: LoggerLevel
 }

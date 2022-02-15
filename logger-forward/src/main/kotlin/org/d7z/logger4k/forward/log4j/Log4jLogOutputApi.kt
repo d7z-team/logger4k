@@ -3,7 +3,7 @@ package org.d7z.logger4k.forward.log4j
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.spi.StandardLevel
 import org.d7z.logger4k.core.LoggerLevel
-import org.d7z.logger4k.core.api.ILogOutputApi
+import org.d7z.logger4k.core.pub.ILogOutputApi
 import java.time.LocalDateTime
 
 class Log4jLogOutputApi : ILogOutputApi {

@@ -20,24 +20,26 @@
 
 package org.d7z.logger4k.core.utils
 
-import org.d7z.logger4k.core.ILogger
+import org.d7z.logger4k.core.LoggerFactory
+import org.d7z.logger4k.core.LoggerLevel
+import org.d7z.logger4k.core.api.ILogger
 import kotlin.reflect.KClass
 
 fun Any.getLogger(): ILogger {
-    return org.d7z.logger4k.core.LoggerFactory.getLogger(javaClass)
+    return LoggerFactory.getLogger(javaClass)
 }
 
 fun KClass<*>.getLogger(): ILogger {
-    return org.d7z.logger4k.core.LoggerFactory.getLogger(this)
+    return LoggerFactory.getLogger(this)
 }
 
 fun Class<*>.getLogger(): ILogger {
-    return org.d7z.logger4k.core.LoggerFactory.getLogger(this)
+    return LoggerFactory.getLogger(this)
 }
 
 fun Any.withLogTrace(print: Print.() -> Unit) {
     val logger = this.getLogger()
-    if (logger.level <= org.d7z.logger4k.core.LoggerLevel.TRACE) {
+    if (logger.level <= LoggerLevel.TRACE) {
         print(object : Print {
             override fun println(message: String, vararg data: Any?) {
                 logger.trace(message, *data)
@@ -48,7 +50,7 @@ fun Any.withLogTrace(print: Print.() -> Unit) {
 
 fun Any.withLogDebug(print: Print.() -> Unit) {
     val logger = this.getLogger()
-    if (logger.level <= org.d7z.logger4k.core.LoggerLevel.DEBUG) {
+    if (logger.level <= LoggerLevel.DEBUG) {
         print(object : Print {
             override fun println(message: String, vararg data: Any?) {
                 logger.debug(message, *data)
@@ -59,7 +61,7 @@ fun Any.withLogDebug(print: Print.() -> Unit) {
 
 fun Any.withLogInfo(print: Print.() -> Unit) {
     val logger = this.getLogger()
-    if (logger.level <= org.d7z.logger4k.core.LoggerLevel.INFO) {
+    if (logger.level <= LoggerLevel.INFO) {
         print(object : Print {
             override fun println(message: String, vararg data: Any?) {
                 logger.info(message, *data)
@@ -70,7 +72,7 @@ fun Any.withLogInfo(print: Print.() -> Unit) {
 
 fun Any.withLogWarn(print: Print.() -> Unit) {
     val logger = this.getLogger()
-    if (logger.level <= org.d7z.logger4k.core.LoggerLevel.WARN) {
+    if (logger.level <= LoggerLevel.WARN) {
         print(object : Print {
             override fun println(message: String, vararg data: Any?) {
                 logger.warn(message, *data)
@@ -81,7 +83,7 @@ fun Any.withLogWarn(print: Print.() -> Unit) {
 
 fun Any.withLogError(print: Print.() -> Unit) {
     val logger = this.getLogger()
-    if (logger.level <= org.d7z.logger4k.core.LoggerLevel.ERROR) {
+    if (logger.level <= LoggerLevel.ERROR) {
         print(object : Print {
             override fun println(message: String, vararg data: Any?) {
                 logger.error(message, *data)

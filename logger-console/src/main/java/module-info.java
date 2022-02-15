@@ -1,5 +1,4 @@
 import org.d7z.logger4k.console.ConsoleLogApi;
-import org.d7z.logger4k.core.api.ILogApi;
 
 module org.d7z.logger4k.ext.console {
     requires kotlin.stdlib;

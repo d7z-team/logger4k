@@ -7,7 +7,7 @@ import org.d7z.logger4k.console.config.LineFormatConfig
 import org.d7z.logger4k.console.config.LogOutputConfig
 import org.d7z.logger4k.console.utils.Config
 import org.d7z.logger4k.core.LoggerLevel
-import org.d7z.logger4k.core.api.ILogOutputApi
+import org.d7z.logger4k.core.pub.ILogOutputApi
 import java.time.LocalDateTime
 
 object ConsoleLogOutputApi : ILogOutputApi {

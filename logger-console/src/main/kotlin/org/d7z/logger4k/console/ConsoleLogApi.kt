@@ -1,8 +1,8 @@
 package org.d7z.logger4k.console
 
 import org.d7z.logger4k.console.config.CacheConfig
-import org.d7z.logger4k.core.api.ILogApi
-import org.d7z.logger4k.core.api.ILogOutputApi
+import org.d7z.logger4k.core.pub.ILogApi
+import org.d7z.logger4k.core.pub.ILogOutputApi
 
 class ConsoleLogApi : ILogApi {
 

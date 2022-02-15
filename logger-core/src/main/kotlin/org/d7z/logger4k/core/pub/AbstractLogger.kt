@@ -1,40 +1,49 @@
-/*
- * Copyright (c) 2020, OpenEDGN. All rights reserved.
- * HOME Page: https://github.com/OpenEDGN
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+package org.d7z.logger4k.core.pub
 
-package org.d7z.logger4k.core.internal
-
-import org.d7z.logger4k.core.ILogger
 import org.d7z.logger4k.core.LoggerLevel
-import org.d7z.logger4k.core.api.ILogOutputApi
-import org.d7z.logger4k.core.utils.IMessageFormat
+import org.d7z.logger4k.core.api.ILogger
+import org.d7z.logger4k.core.utils.MessageUtils
 import java.time.LocalDateTime
 
 /**
- * 默认的 Logger 实现类
- *
+ * 抽象化 Logger
  */
-internal class SimpleLogger(
-    private val name: String,
-    private val api: ILogOutputApi,
-    private val messageFormat: IMessageFormat,
-) : ILogger {
+abstract class AbstractLogger : ILogger {
+    companion object {
+        private val MESSAGE_FORMAT: IMessageFormat = MessageUtils
+    }
+
+    /**
+     * Logger 名称
+     */
+    abstract val name: String
+
+    /**
+     * Logger 输出
+     *
+     * @param name String Logger 名称
+     * @param thread Thread Logger 当前线程
+     * @param date LocalDateTime Logger 触发时间
+     * @param level LoggerLevel Logger 等级
+     * @param message String Logger 消息
+     * @param throwable Throwable? Logger 产生的错误
+     */
+    abstract fun output(
+        name: String,
+        thread: Thread,
+        date: LocalDateTime,
+        level: LoggerLevel,
+        message: String,
+        throwable: Throwable? = null,
+
+    )
+
+    /**
+     * 当前 Logger level
+     */
+    abstract override val level: LoggerLevel
+
+    private val messageFormat: IMessageFormat = MESSAGE_FORMAT
 
     override fun trace(message: String, vararg param: Any?): ILogger {
         if (level.level > LoggerLevel.TRACE.level) {
@@ -42,7 +51,7 @@ internal class SimpleLogger(
         }
         val array = Array<Any?>(param.size) { null }
         System.arraycopy(param, 0, array, 0, array.size)
-        api.outputLogger(
+        output(
             name, Thread.currentThread(), LocalDateTime.now(),
             LoggerLevel.TRACE, messageFormat.format(message, array)
         )
@@ -55,7 +64,7 @@ internal class SimpleLogger(
         }
         val array = Array<Any?>(param.size) { null }
         System.arraycopy(param, 0, array, 0, array.size)
-        api.outputLogger(
+        output(
             name, Thread.currentThread(), LocalDateTime.now(),
             LoggerLevel.DEBUG, messageFormat.format(message, array)
         )
@@ -68,7 +77,7 @@ internal class SimpleLogger(
         }
         val array = Array<Any?>(param.size) { null }
         System.arraycopy(param, 0, array, 0, array.size)
-        api.outputLogger(
+        output(
             name, Thread.currentThread(), LocalDateTime.now(),
             LoggerLevel.INFO, messageFormat.format(message, array)
         )
@@ -81,7 +90,7 @@ internal class SimpleLogger(
         }
         val array = Array<Any?>(param.size) { null }
         System.arraycopy(param, 0, array, 0, array.size)
-        api.outputLogger(
+        output(
             name, Thread.currentThread(), LocalDateTime.now(),
             LoggerLevel.WARN, messageFormat.format(message, array)
         )
@@ -94,7 +103,7 @@ internal class SimpleLogger(
         }
         val array = Array<Any?>(param.size) { null }
         System.arraycopy(param, 0, array, 0, array.size)
-        api.outputLogger(
+        output(
             name, Thread.currentThread(), LocalDateTime.now(),
             LoggerLevel.ERROR, messageFormat.format(message, array)
         )
@@ -105,7 +114,7 @@ internal class SimpleLogger(
         if (level.level > LoggerLevel.DEBUG.level) {
             return this
         }
-        api.outputLogger(
+        output(
             name, Thread.currentThread(), LocalDateTime.now(),
             LoggerLevel.DEBUG, message.toString(), exception
         )
@@ -116,7 +125,7 @@ internal class SimpleLogger(
         if (level.level > LoggerLevel.INFO.level) {
             return this
         }
-        api.outputLogger(
+        output(
             name, Thread.currentThread(), LocalDateTime.now(),
             LoggerLevel.INFO, message.toString(), exception
         )
@@ -127,7 +136,7 @@ internal class SimpleLogger(
         if (level.level > LoggerLevel.TRACE.level) {
             return this
         }
-        api.outputLogger(
+        output(
             name, Thread.currentThread(), LocalDateTime.now(),
             LoggerLevel.TRACE, message.toString(), exception
         )
@@ -138,7 +147,7 @@ internal class SimpleLogger(
         if (level.level > LoggerLevel.WARN.level) {
             return this
         }
-        api.outputLogger(
+        output(
             name, Thread.currentThread(), LocalDateTime.now(),
             LoggerLevel.WARN, message.toString(), exception
         )
@@ -149,7 +158,7 @@ internal class SimpleLogger(
         if (level.level > LoggerLevel.ERROR.level) {
             return this
         }
-        api.outputLogger(
+        output(
             name, Thread.currentThread(), LocalDateTime.now(),
             LoggerLevel.ERROR, message.toString(), exception
         )
@@ -169,9 +178,6 @@ internal class SimpleLogger(
         }
         return this
     }
-
-    override val level: LoggerLevel
-        get() = api.outputLevel(name)
 
     override val isDebug: Boolean
         get() = level == LoggerLevel.DEBUG

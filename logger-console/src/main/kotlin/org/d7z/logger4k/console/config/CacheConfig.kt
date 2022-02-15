@@ -3,7 +3,7 @@ package org.d7z.logger4k.console.config
 import org.d7z.logger4k.console.output.CacheLogOutputApi
 import org.d7z.logger4k.console.output.ConsoleLogOutputApi
 import org.d7z.logger4k.console.utils.Config
-import org.d7z.logger4k.core.api.ILogOutputApi
+import org.d7z.logger4k.core.pub.ILogOutputApi
 
 object CacheConfig : Config.ConfigItem<ILogOutputApi> {
     override val key = "logger.output.cache"

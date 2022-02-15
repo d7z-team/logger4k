@@ -18,7 +18,7 @@
  * SOFTWARE.
  */
 
-package org.d7z.logger4k.core.utils
+package org.d7z.logger4k.core.pub
 
 /**
  * 消息格式化类，将字符串格式化
@@ -31,5 +31,12 @@ package org.d7z.logger4k.core.utils
  *
  */
 interface IMessageFormat {
+    /**
+     * 消息转换
+     *
+     * @param message String 消息
+     * @param data Array<out Any?>  消息填充
+     * @return String 格式化后的消息体
+     */
     fun format(message: String, data: Array<out Any?>): String
 }

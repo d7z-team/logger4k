@@ -1,11 +1,14 @@
-package org.d7z.logger4k.core
+package org.d7z.logger4k.core.api
 
 import kotlin.reflect.KClass
 
 /**
  * 日志工厂
+ *
+ * @since 0.1.0
  */
 interface ILoggerFactory {
+
     /**
      * 根据 java class 得到日志实例
      */

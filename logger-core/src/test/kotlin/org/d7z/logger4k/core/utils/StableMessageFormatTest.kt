@@ -1,13 +1,14 @@
 package org.d7z.logger4k.core.utils
 
+import org.d7z.logger4k.core.internal.format.StableMessageFormat
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class SimpleMessageFormatTest {
+internal class StableMessageFormatTest {
 
     @Test
     fun format() {
-        val format = SimpleMessageFormat()
+        val format = StableMessageFormat()
         assertEquals(
             format.format(
                 "Hello World, {}.",

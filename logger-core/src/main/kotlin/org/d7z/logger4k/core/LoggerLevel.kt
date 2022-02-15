@@ -23,7 +23,9 @@ package org.d7z.logger4k.core
 /**
  *  LOGGER LEVEL
  *
- * @property level Int
+ * @since 0.1.0
+ *
+ * @property level
  */
 enum class LoggerLevel(val level: Int) {
     /**
