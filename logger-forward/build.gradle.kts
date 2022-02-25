@@ -25,9 +25,7 @@ val compileJava: JavaCompile by tasks
 compileJava.destinationDirectory.set(compileKotlin.destinationDirectory.get())
 
 dependencies {
-    compileOnly(project(":logger-console"))
     compileOnly("org.slf4j:slf4j-api:2.0.0-alpha5")
-    compileOnly("org.apache.logging.log4j:log4j-core:2.17.0")
     implementation(project(":logger-core"))
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))

@@ -2,12 +2,12 @@ package org.d7z.logger4k.core.internal
 
 import org.d7z.logger4k.core.LoggerLevel
 import org.d7z.logger4k.core.api.ILoggerFactory
+import org.d7z.logger4k.core.internal.simple.SPISearch
 import org.d7z.logger4k.core.internal.simple.SimpleLoggerFactory
-import org.d7z.logger4k.core.utils.SPISearchUtils
 
 object Logger4kConfig {
     val loggerFactory: ILoggerFactory by lazy {
-        val search = SPISearchUtils.search(ILoggerFactory::class, SimpleLoggerFactory())
+        val search = SPISearch.search(ILoggerFactory::class, SimpleLoggerFactory())
         if (search.size > 1) {
             System.err.println(
                 """
@@ -24,7 +24,17 @@ object Logger4kConfig {
 
     val loggerLevel: LoggerLevel by lazy {
         try {
-            LoggerLevel.valueOf(System.getProperty("logger4k.level", "OFF").uppercase())
+            LoggerLevel.valueOf(
+                System.getProperty(
+                    "logger.level",
+                    System.getProperty(
+                        "logger4k.level",
+                        System.getProperty(
+                            "log.level", "OFF"
+                        )
+                    )
+                ).uppercase()
+            )
         } catch (e: Exception) {
             LoggerLevel.OFF
         }

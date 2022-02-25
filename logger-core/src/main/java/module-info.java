@@ -6,7 +6,6 @@ module org.d7z.logger4k.core {
     requires kotlin.reflect;
     exports org.d7z.logger4k.core;
     exports org.d7z.logger4k.core.api;
-    exports org.d7z.logger4k.core.pub;
     exports org.d7z.logger4k.core.utils;
     uses ILoggerFactory;
 }
