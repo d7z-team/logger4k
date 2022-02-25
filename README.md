@@ -15,59 +15,9 @@
 
 ### 开始之前
 
-> 在开始之前，你需要将模块引入到项目中，本项目使用 JitPack 作为依赖仓库，下面介绍了使用`Gradle` 和`Apache Maven` 的引入方法
+> 在开始之前，你需要将模块引入到项目中，本项目使用 JitPack 作为依赖仓库 。
 
-#### Maven & Gradle
-
-##### 1. 将JitPack存储库添加到您的构建文件中
-
-**Maven**
-
-```xml
-
-<repositories>
-    <repository>
-        <id>jitpack.io</id>
-        <url>https://jitpack.io</url>
-    </repository>
-</repositories>
-```
-
-**Gradle**
-
-```groovy
-allprojects {
-    repositories {
-        //其他仓库 
-        maven { url 'https://jitpack.io' }
-    }
-}
-```
-
-##### 2. 添加依赖项
-
-**Maven**
-
-```xml
-
-<dependency>
-    <groupId>com.github.OpenEdgn.Logger4K</groupId>
-    <artifactId>${modName}</artifactId>
-    <version>${version}</version>
-</dependency>
-```
-
-**Gradle**
-
-```groovy
-dependencies {
-    implementation "com.github.OpenEdgn.Logger4K:${modName}:${version}"
-}
-```
-
-> 其中，`${modName}` 代表 引用的模块名称，而 `${version}` 则代表引用的版本号，请按需引入。
-
-其中，当前最新版本为：[![JitPack](https://img.shields.io/jitpack/v/github/d7z-team/logger4k?label=version&style=flat-square)](https://jitpack.io/#d7z-team/logger4k)
+当前最新版本为：[![JitPack](https://img.shields.io/jitpack/v/github/d7z-team/logger4k?label=version&style=flat-square)](https://jitpack.io/#d7z-team/logger4k)
 
 ### 使用
 
@@ -94,9 +44,6 @@ logger.debugOnly {
 }
 
 ```
-
-更多使用方法请查看 `TEST` 下的 [PrintLogger.kt](./logger-console/src/test/kotlin/PrintLogger.kt)
-和 [LoggerMainTestAll.kt](./logger-console/src/test/kotlin/LoggerMainTestAll.kt)  文件。
 
 ## LICENSE
 
