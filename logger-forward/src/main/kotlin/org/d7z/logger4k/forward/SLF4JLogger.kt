@@ -8,11 +8,11 @@ import java.time.LocalDateTime
 class SLF4JLogger(override val name: String, private val logger: Logger) : AbstractLogger() {
     override val level: LoggerLevel
         get() = when {
-            logger.isErrorEnabled -> LoggerLevel.ERROR
-            logger.isWarnEnabled -> LoggerLevel.WARN
-            logger.isInfoEnabled -> LoggerLevel.INFO
-            logger.isDebugEnabled -> LoggerLevel.DEBUG
             logger.isTraceEnabled -> LoggerLevel.TRACE
+            logger.isDebugEnabled -> LoggerLevel.DEBUG
+            logger.isInfoEnabled -> LoggerLevel.INFO
+            logger.isWarnEnabled -> LoggerLevel.WARN
+            logger.isErrorEnabled -> LoggerLevel.ERROR
             else -> LoggerLevel.OFF
         }
 

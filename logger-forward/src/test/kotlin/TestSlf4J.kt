@@ -1,10 +1,13 @@
 import org.d7z.logger4k.core.LoggerFactory
 import org.junit.jupiter.api.Test
+import org.slf4j.simple.SimpleLogger
 
 class TestSlf4J {
 
     @Test
     fun test() {
+        System.setProperty(SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "TRACE")
+
         val logger = LoggerFactory.getLogger(javaClass)
         logger.trace("Hello World")
         logger.debug("Hello World")

@@ -1,7 +1,7 @@
 # Logger 4K
 
 <p style="text-align: center">
-<a href="https://github.com/d7z-team/logger4k" target="_blank"><img alt="Jenkins" src="https://github.com/d7z-team/logger4k/actions/workflows/release.yml/badge.svg?branch=master&color=green&style=flat-square"/></a>
+<a href="https://github.com/d7z-team/logger4k" target="_blank"><img alt="Jenkins" src="https://github.com/d7z-team/logger4k/actions/workflows/release.yml/badge.svg?branch=main&color=green&style=flat-square"/></a>
 <a href="LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/d7z-team/logger4k"></a>
 <a href="#"><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/d7z-team/logger4k"></a>
 <a href="https://jitpack.io/#d7z-team/logger4k" target="_blank"> <img alt="JitPack" src="https://img.shields.io/jitpack/v/github/d7z-team/logger4k"></a>
